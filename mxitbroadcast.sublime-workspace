@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"to_s",
+				"to_s"
+			],
+			[
+				"l",
+				"legend	Tag"
+			],
+			[
+				"s",
+				"style	Tag"
+			],
+			[
+				"ress",
+				"response2"
+			],
+			[
+				"reso",
+				"response2"
+			],
+			[
+				"Spool",
+				"SpoolTimeOut"
+			],
+			[
 				"redirec",
 				"redirect_uri"
 			]
@@ -11,6 +35,48 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "mb.rb",
+			"settings":
+			{
+				"buffer_size": 775,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mxitbroadcastlog.txt",
+			"settings":
+			{
+				"buffer_size": 4506,
+				"line_ending": "Unix",
+				"name": "m22260225002,m2234159002,m22513359002,m2263092002,"
+			}
+		},
+		{
+			"file": "Procfile",
+			"settings":
+			{
+				"buffer_size": 40,
+				"line_ending": "Unix",
+				"name": "web: ruby mb.rb -e \"production\" -p $PORT"
+			}
+		},
+		{
+			"file": "views/send.erb",
+			"settings":
+			{
+				"buffer_size": 3961,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 73,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -36,6 +102,8 @@
 	},
 	"file_history":
 	[
+		"/home/emilesilvis/Projects/mxitbroadcast/public/parsley.js",
+		"/media/sf_share/foo.txt",
 		"/home/emilesilvis/Projects/mxitbroadcast/mb.rb",
 		"/home/emilesilvis/Projects/mxitbroadcast/Gemfile",
 		"/home/emilesilvis/Projects/mxitbroadcast/Gemfile.lock",
@@ -69,7 +137,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -83,6 +151,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" ",
+			"/",
+			"\"",
+			".parsley-validated",
 			"inspect",
 			"\"=>\"\",",
 			"Toby+Kurien",
@@ -97,6 +169,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			":file_name",
 			"sublime.desktop"
 		],
@@ -109,8 +182,142 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "mb.rb",
+					"settings":
+					{
+						"buffer_size": 775,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								772,
+								772
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mxitbroadcastlog.txt",
+					"settings":
+					{
+						"buffer_size": 4506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1732,
+								1732
+							]
+						],
+						"settings":
+						{
+							"auto_name": "m22260225002,m2234159002,m22513359002,m2263092002,",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Procfile",
+					"settings":
+					{
+						"buffer_size": 40,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12,
+								12
+							]
+						],
+						"settings":
+						{
+							"auto_name": "web: ruby mb.rb -e \"production\" -p $PORT",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/send.erb",
+					"settings":
+					{
+						"buffer_size": 3961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2167,
+								2167
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 73,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60,
+								60
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -120,7 +327,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"layout":
 	{
