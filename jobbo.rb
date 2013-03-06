@@ -14,7 +14,7 @@ configure do
 end
 
 before do
-	@mixup_ad = RestClient.get 'http://serve.mixup.hapnic.com/9392697'
+	@mixup_ad = RestClient.get 'http://serve.mixup.hapnic.com/9502655'
 end
 
 get '/' do
