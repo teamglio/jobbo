@@ -74,3 +74,12 @@ end
 error do
   'Sorry there was a nasty error: ' + env['sinatra.error'].message.to_s
 end
+
+helpers do
+	def get_ad
+		Net::HTTP.start("serve.mixup.hapnic.com") do |http|
+			response = http.get("http://serve.mixup.hapnic.com/8215822")
+			return response.body
+		end
+	end
+end
