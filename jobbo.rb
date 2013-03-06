@@ -33,7 +33,6 @@ end
 
 get '/jobs' do
 
-
 	parameters = {
 		:publisher => ENV['PUB_ID'],
 	 	:v => '2',

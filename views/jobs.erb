@@ -4,7 +4,7 @@
 		<b>Description</b>: <%= job['snippet'] %> <br />
 		<b>Company</b>: <%= job['company'] %> <br />
 		<b>Location</b>: <%= job['city'] + ', ' + job['state'] %> <br />
-		<a href=<%= job['url'] %> target="_blank">Go to job</a><br />
+		<a href=<%= job['url'] %> onclick="window.open(this.href)">Go to job</a><br />
 	</div>
 	<hr />
 <% end %>
