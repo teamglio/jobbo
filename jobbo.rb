@@ -22,12 +22,12 @@ get '/' do
 end
 
 post '/job' do
-	session['job'] = params['job']	
+	session['job'] = params['job']  == '' ? '' : params['job']
 	erb :locationsearch
 end
 
 post '/location' do
-	session['location'] = params['location']
+	session['location'] = params['location']  == '' ? '' : params['location']
 	redirect to ('/jobs')
 end
 
@@ -72,6 +72,25 @@ post '/feedback' do
 	  :body_text => params['feedback'] + ' - ' + Mxit.new(request.env).user_id
 	  )
 	erb "Thanks!" 
+end
+
+get '/stats' do
+	#protected!
+	s3 = AWS::S3.new
+	bucket = s3.buckets['emilesilvis']
+	object = bucket.objects['mxitjobsearch/log.json']
+	log = JSON.parse(object.read)
+
+	queries = log.values.each do |record|
+		record
+	end
+
+	users = queries.collect do |query|
+		query["user"]
+	end
+
+	erb 'Number of queries: ' + queries.count.to_s + ' <br />Number of users: ' + users.uniq.count.to_s + '<br />Average queries per user: ' + format('%.2f', (queries.count.to_f/users.uniq.count.to_f))
+
 end
 
 error do
