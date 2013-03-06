@@ -1,3 +1,3 @@
-# MxitJobSearch
+# Jobbo
 
-MxitJobSearch is an job searching app for [Mxit](https://www.mxit.com).
+Jobbo is an job searching app for [Mxit](https://www.mxit.com).
