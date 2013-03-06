@@ -22,12 +22,12 @@ get '/' do
 end
 
 post '/job' do
-	session['job'] = params['job']  == 'all' ? '' : params['job']
+	session['job'] = params['job'].downcase  == 'all' ? '' : params['job']
 	erb :locationsearch
 end
 
 post '/location' do
-	session['location'] = params['location']  == 'all' ? '' : params['location']
+	session['location'] = params['location'].downcase  == 'all' ? '' : params['location']
 	redirect to ('/jobs')
 end
 
