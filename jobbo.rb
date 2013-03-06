@@ -66,7 +66,7 @@ end
 post '/feedback' do
 	ses = AWS::SimpleEmailService.new
 	ses.send_email(
-	  :subject => 'WolframMu feedback',
+	  :subject => 'Jobbo feedback',
 	  :from => 'emile@silvis.co.za',
 	  :to => 'emile@silvis.co.za',
 	  :body_text => params['feedback'] + ' - ' + Mxit.new(request.env).user_id
