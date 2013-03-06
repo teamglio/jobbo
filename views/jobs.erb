@@ -1,0 +1,14 @@
+<% @jobs['results'].each do |job| %>
+	<div>
+		<b>Job title</b>: <%= job['jobtitle'] %> <br />
+		<b>Description</b>: <%= job['snippet'] %> <br />
+		<b>Company</b>: <%= job['company'] %> <br />
+		<b>Location</b>: <%= job['city'] + ', ' + job['state'] %> <br />
+		<a href=<%= job['url'] %> target="_blank">Go to job</a><br />
+	</div>
+	<hr />
+<% end %>
+<div>
+	<span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
+</div>
+<hr />

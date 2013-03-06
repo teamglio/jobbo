@@ -1,3 +1,3 @@
-# MxitBroadcast
+# MxitJobSearch
 
-MxitBroadcast is an app for broadcasting messages to users of a [Mxit](https://www.mxit.com) app.
+MxitJobSearch is an job searching app for [Mxit](https://www.mxit.com).
