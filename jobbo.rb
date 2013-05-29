@@ -48,14 +48,6 @@ get '/jobs' do
 
 	@jobs = JSON.load(response)
 
-	s3 = AWS::S3.new
-	bucket = s3.buckets['emilesilvis']
-	object = bucket.objects['mxitjobsearch/log.json']
-	#log = {Time.now => {:user => Mxit.new(request.env).user_id, :keyword => session[:job] ,:location => session[:location]}}
-	log = JSON.parse(object.read)
-	log[Time.now] = {:user => Mxit.new(request.env).user_id, :keyword => session[:job] ,:location => session[:location]}
-	object.write(log.to_json)
-
 	erb :jobs
 end
 
@@ -72,25 +64,6 @@ post '/feedback' do
 	  :body_text => params['feedback'] + ' - ' + Mxit.new(request.env).user_id
 	  )
 	erb "Thanks! <a href='/'>Back</a>" 
-end
-
-get '/stats' do
-	#protected!
-	s3 = AWS::S3.new
-	bucket = s3.buckets['emilesilvis']
-	object = bucket.objects['mxitjobsearch/log.json']
-	log = JSON.parse(object.read)
-
-	queries = log.values.each do |record|
-		record
-	end
-
-	users = queries.collect do |query|
-		query["user"]
-	end
-
-	erb 'Number of queries: ' + queries.count.to_s + ' <br />Number of users: ' + users.uniq.count.to_s + '<br />Average queries per user: ' + format('%.2f', (queries.count.to_f/users.uniq.count.to_f))
-
 end
 
 error do
