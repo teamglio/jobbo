@@ -2,11 +2,15 @@ require 'sinatra'
 require 'rest_client'
 require 'json'
 require 'aws-sdk'
-require_relative 'mxit'
+require 'dotenv'
+require 'firebase'
+require_relative 'lib/jobbo.rb'
 
 enable :sessions
 
 configure do
+	Dotenv.load if settings.development?
+	Firebase.base_uri = "https://glio-mxit-users.firebaseio.com/#{ENV['MXIT_APP_NAME']}/"	
 	AWS.config(
 	  :access_key_id => ENV['AWS_KEY'],
 	  :secret_access_key => ENV['AWS_SECRET']
@@ -14,10 +18,11 @@ configure do
 end
 
 before do
-	@mixup_ad = RestClient.get 'http://serve.mixup.hapnic.com/9502655'
+	@mixup_ad = RestClient.get "http://serve.mixup.hapnic.com/#{ENV['MXIT_APP_NAME']}"
 end
 
 get '/' do
+	create_user unless get_user	
 	erb :jobsearch
 end
 
@@ -61,11 +66,23 @@ post '/feedback' do
 	  :subject => 'Jobbo feedback',
 	  :from => 'mxitappfeedback@glio.co.za',
 	  :to => 'mxitappfeedback@glio.co.za',
-	  :body_text => params['feedback'] + ' - ' + Mxit.new(request.env).user_id
+	  :body_text => params['feedback'] + ' - ' + MxitUser.new(request.env).user_id
 	  )
 	erb "Thanks! <a href='/'>Back</a>" 
 end
 
 error do
   'Sorry there was a nasty error: ' + env['sinatra.error'].message.to_s
+end
+
+helpers do
+	def get_user
+		mxit_user = MxitUser.new(request.env)
+		data = Firebase.get(mxit_user.user_id).response.body
+		data == "null" ? nil : data
+	end
+	def create_user
+		mxit_user = MxitUser.new(request.env)
+		Firebase.set(mxit_user.user_id, {:date_joined => Time.now})
+	end
 end
