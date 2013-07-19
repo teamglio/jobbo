@@ -4,6 +4,7 @@ require 'json'
 require 'aws-sdk'
 require 'dotenv'
 require 'firebase'
+require 'stathat'
 require_relative 'lib/jobbo.rb'
 
 enable :sessions
@@ -37,6 +38,8 @@ post '/location' do
 end
 
 get '/jobs' do
+
+	StatHat::API.ez_post_count('jobbo - jobs searched', 'emile@silvis.co.za', 1)		
 
 	parameters = {
 		:publisher => ENV['PUB_ID'],
